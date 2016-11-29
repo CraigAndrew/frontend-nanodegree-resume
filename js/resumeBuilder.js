@@ -1,105 +1,198 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
 var bio = {
-    name : "Craig Andrew",
-    role : "Web Developer",
-    contacts : {
+    name: "Craig Andrew",
+    role: "Web Developer",
+    contacts: {
         mobile: "079-991-2345",
-        email: "string",
-        github: "string",
-        twitter: "string (optional)",
-        location: "string",
+        email: "craig.andrew@gmail.com",
+        github: "craig.andrew",
+        twitter: "@craig.andrew",
+        location: "Durban, South Africa"
     },
-    welcomeMessage: "string",
+    welcomeMessage: "Hello World",
     skills: "awesomeness, delivering things, cryogenic sleep, saving the universe",
-    biopic:  "./images/fry.jpg",
-    display: function() {
-      // TODO
-    }
-}
-
-var education = {
-    schools: "array of objects with",
-    name: "string",
-    location: "string",
-    degree: "string",
-    majors: "array of strings",
-    dates: "string (works with a hyphen between them)",
-    url: "string",
-    onlineCourses: "array of objects with",
-    title: "string",
-    school: "string",
-    dates: "string (works with a hyphen between them)",
-    url: "string",
-    display: function() {
-      // TODO
+    biopic: "./images/biopic.jpg",
+    display: function () {
+        return JSON.stringify(this);
     }
 };
 
 var work = {
-    jobs: "array of objects with",
-    employer: "string",
-    title: "string",
-    location: "string",
-    dates: "string (Can be 'in progress')",
-    description: "string",
-    display: function() {
+    jobs: [
+        {
+            employer: "IT World",
+            title: "Developer",
+            location: "Durban, South Africa",
+            dates: "January 2016 - Future",
+            description: "Transform the way you work."
+        },
+        {
+            employer: "IT Tech",
+            title: "Technician",
+            location: "Durban, South Africa",
+            dates: "January 2014 - December 2015",
+            description: "Fix stuff"
+        }],
+    display: function () {
+        return JSON.stringify(this);
+    }
+};
 
+var education = {
+    schools: [
+        {
+            name: "UKZN",
+            location: "Durban, South Africa",
+            degree: "Bachelor of Science",
+            majors: "Computer Science",
+            dates: "2012",
+            url: "https://www.ukzn.ac.za"
+        },
+        {
+            name: "UNISA",
+            location: "Durban, South Africa",
+            degree: "Honors in Computing",
+            majors: "Software Engineering",
+            dates: "2014",
+            url: "https://www.unisa.ac.za"
+        }
+    ],
+    onlineCourses: [
+        {
+            title: "HTML Developer",
+            school: "w3schools",
+            dates: "2010",
+            url: "http://www.w3schools.com"
+        },
+        {
+            title: "JS Developer",
+            school: "BrainBench",
+            dates: "2011",
+            url: "http://www.brainbench.com"
+        }
+    ],
+    display: function () {
+        return JSON.stringify(this);
     }
 };
 
 var projects = {
-    projects: "array of objects with",
-    title: "string",
-    dates: "string (works with a hyphen between them)",
-    description: "string",
-    images: "array with string urls",
-    display: function() {
-
+    projects: [
+        {
+            title: "Take over the world",
+            dates: "2014",
+            description: "Trying to take over the world",
+            images: ["./images/proj.gif", "./images/proj.gif"]
+        },
+        {
+            title: "Take over the world2",
+            dates: "2015",
+            description: "Trying to take over the world part II",
+            images: ["./images/proj.gif", "./images/proj.gif"]
+        }
+    ],
+    display: function () {
+        return JSON.stringify(this);
     }
 };
 
 var formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedHeaderRole);
-
+var header = $("#header");
 var formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").prepend(formattedHeaderName);
-
-
-// var formattedContactGeneric = HTMLcontactGeneric.replace("%data%", bio.contacts[0]);
-// $("#header").append(formattedContactGeneric);
-//
+var topContacts = $("#topContacts");
+var footerContacts = $("#footerContacts");
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#topContacts").append(formattedMobile);
-
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(formattedEmail);
-
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#topContacts").append(formattedGithub);
-
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-$("#topContacts").append(formattedTwitter);
-
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").append(formattedLocation);
-
-// var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-// var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-// var HTMLlocation
-
-// var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-// var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-$("#header").append(formattedBioPic);
+var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-$(".work-entry:last").append(formattedLocation);
+header.prepend(formattedHeaderRole);
+header.prepend(formattedHeaderName);
+topContacts.append(formattedMobile);
+footerContacts.append(formattedMobile);
+topContacts.append(formattedEmail);
+footerContacts.append(formattedEmail);
+topContacts.append(formattedGithub);
+footerContacts.append(formattedGithub);
+topContacts.append(formattedTwitter);
+footerContacts.append(formattedTwitter);
+topContacts.append(formattedLocation);
+footerContacts.append(formattedLocation);
+header.append(formattedBioPic);
+header.append(formattedWelcomeMessage);
+header.append(HTMLskillsStart);
 
-var formattedContactGeneric = HTMLcontactGeneric.replace("%data%", bio.contacts);
-$("#workExperience").append(formattedContactGeneric);
+bio.skills.split(",").forEach(function (skill) {
+    var formattedSkill = HTMLskills.replace("%data%", skill);
+    $("#skills").append(formattedSkill);
+});
 
+work.jobs.forEach(function (job) {
+    $("#workExperience").append(HTMLworkStart);
 
-//var HTMLmobile, var HTMLemail, var HTMLtwitter, var HTMLgithub, var HTMLblog, var HTMLlocation
+    var workEntry = $(".work-entry:last");
+    var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+    var formattedWorkTitle = HTMLworkTitle.replace("%data%", job.title);
+    var formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
+    var formattedWorkLocation = HTMLworkLocation.replace("%data%", job.location);
+    var formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
+
+    workEntry.append(formattedWorkEmployer + formattedWorkTitle);
+    workEntry.append(formattedWorkDates);
+    workEntry.append(formattedWorkLocation);
+    workEntry.append(formattedWorkDescription);
+});
+
+projects.projects.forEach(function (project) {
+    $("#projects").append(HTMLprojectStart);
+
+    var projectEntry = $(".project-entry:last");
+    var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title);
+    var formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
+    var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
+
+    projectEntry.append(formattedProjectTitle);
+    projectEntry.append(formattedProjectDates);
+    projectEntry.append(formattedProjectDescription);
+
+    project.images.forEach(function (image) {
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", image);
+        $(".project-entry:last").append(formattedProjectImage);
+    });
+});
+
+education.schools.forEach(function (school) {
+    $("#education").append(HTMLschoolStart);
+
+    var educationEntry = $(".education-entry:last");
+    var formattedEducationName = HTMLschoolName.replace("%data%", school.name);
+    var formattedEducationDegree = HTMLschoolDegree.replace("%data%", school.degree);
+    var formattedEducationDates = HTMLschoolDates.replace("%data%", school.dates);
+    var formattedEducationLocation = HTMLschoolLocation.replace("%data%", school.location);
+    var formattedEducationMajor = HTMLschoolMajor.replace("%data%", school.majors);
+
+    educationEntry.append(formattedEducationName + formattedEducationDegree);
+    educationEntry.append(formattedEducationDates);
+    educationEntry.append(formattedEducationLocation);
+    educationEntry.append(formattedEducationMajor);
+});
+
+$("#education").append(HTMLonlineClasses);
+
+education.onlineCourses.forEach(function (onlineCourse) {
+    $("#education").append(HTMLschoolStart);
+
+    var educationEntry = $(".education-entry:last");
+    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
+    var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
+    var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
+    var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineCourse.url);
+
+    educationEntry.append(formattedOnlineTitle + formattedOnlineSchool);
+    educationEntry.append(formattedOnlineDates);
+    educationEntry.append(formattedOnlineURL);
+});
+
+$("#mapDiv").append(googleMap);
