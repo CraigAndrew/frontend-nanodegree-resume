@@ -172,11 +172,13 @@ education.schools.forEach(function (school) {
     var formattedEducationDates = HTMLschoolDates.replace("%data%", school.dates);
     var formattedEducationLocation = HTMLschoolLocation.replace("%data%", school.location);
     var formattedEducationMajor = HTMLschoolMajor.replace("%data%", school.majors);
-
+    var formattedEducationURL = HTMLschoolMajor.replace("%data%", school.url);
+   
     educationEntry.append(formattedEducationName + formattedEducationDegree);
     educationEntry.append(formattedEducationDates);
     educationEntry.append(formattedEducationLocation);
     educationEntry.append(formattedEducationMajor);
+    educationEntry.append(formattedEducationURL);
 });
 
 $("#education").append(HTMLonlineClasses);
