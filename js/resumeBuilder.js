@@ -11,7 +11,7 @@ var bio = {
     welcomeMessage: "Hello World",
     skills: "awesomeness, delivering things, cryogenic sleep, saving the universe",
     biopic: "./images/biopic.jpg",
-    display: function () {
+    display: function() {
         var header = $("#header");
         var topContacts = $("#topContacts");
         var footerContacts = $("#footerContacts");
@@ -41,7 +41,7 @@ var bio = {
         header.append(formattedWelcomeMessage);
         header.append(HTMLskillsStart);
 
-        bio.skills.split(",").forEach(function (skill) {
+        bio.skills.split(",").forEach(function(skill) {
             var formattedSkill = HTMLskills.replace("%data%", skill);
             $("#skills").append(formattedSkill);
         });
@@ -49,23 +49,21 @@ var bio = {
 };
 
 var work = {
-    jobs: [
-        {
-            employer: "IT World",
-            title: "Developer",
-            location: "Durban, South Africa",
-            dates: "January 2016 - Future",
-            description: "Transform the way you work."
-        },
-        {
-            employer: "IT Tech",
-            title: "Technician",
-            location: "Durban, South Africa",
-            dates: "January 2014 - December 2015",
-            description: "Fix stuff"
-        }],
-    display: function () {
-        work.jobs.forEach(function (job) {
+    jobs: [{
+        employer: "IT World",
+        title: "Developer",
+        location: "Durban, South Africa",
+        dates: "January 2016 - Future",
+        description: "Transform the way you work."
+    }, {
+        employer: "IT Tech",
+        title: "Technician",
+        location: "Durban, South Africa",
+        dates: "January 2014 - December 2015",
+        description: "Fix stuff"
+    }],
+    display: function() {
+        work.jobs.forEach(function(job) {
             $("#workExperience").append(HTMLworkStart);
 
             var workEntry = $(".work-entry:last");
@@ -84,40 +82,34 @@ var work = {
 };
 
 var education = {
-    schools: [
-        {
-            name: "UKZN",
-            location: "Durban, South Africa",
-            degree: "Bachelor of Science",
-            majors: "Computer Science",
-            dates: "2012",
-            url: "https://www.ukzn.ac.za"
-        },
-        {
-            name: "UNISA",
-            location: "Durban, South Africa",
-            degree: "Honors in Computing",
-            majors: "Software Engineering",
-            dates: "2014",
-            url: "https://www.unisa.ac.za"
-        }
-    ],
-    onlineCourses: [
-        {
-            title: "HTML Developer",
-            school: "w3schools",
-            dates: "2010",
-            url: "http://www.w3schools.com"
-        },
-        {
-            title: "JS Developer",
-            school: "BrainBench",
-            dates: "2011",
-            url: "http://www.brainbench.com"
-        }
-    ],
-    display: function () {
-        education.schools.forEach(function (school) {
+    schools: [{
+        name: "UKZN",
+        location: "Durban, South Africa",
+        degree: "Bachelor of Science",
+        majors: "Computer Science",
+        dates: "2012",
+        url: "https://www.ukzn.ac.za"
+    }, {
+        name: "UNISA",
+        location: "Durban, South Africa",
+        degree: "Honors in Computing",
+        majors: "Software Engineering",
+        dates: "2014",
+        url: "https://www.unisa.ac.za"
+    }],
+    onlineCourses: [{
+        title: "HTML Developer",
+        school: "w3schools",
+        dates: "2010",
+        url: "http://www.w3schools.com"
+    }, {
+        title: "JS Developer",
+        school: "BrainBench",
+        dates: "2011",
+        url: "http://www.brainbench.com"
+    }],
+    display: function() {
+        education.schools.forEach(function(school) {
             $("#education").append(HTMLschoolStart);
 
             var educationEntry = $(".education-entry:last");
@@ -135,7 +127,7 @@ var education = {
 
         $("#education").append(HTMLonlineClasses);
 
-        education.onlineCourses.forEach(function (onlineCourse) {
+        education.onlineCourses.forEach(function(onlineCourse) {
             $("#education").append(HTMLschoolStart);
 
             var educationEntry = $(".education-entry:last");
@@ -152,22 +144,19 @@ var education = {
 };
 
 var projects = {
-    projects: [
-        {
-            title: "Take over the world",
-            dates: "2014",
-            description: "Trying to take over the world",
-            images: ["./images/proj.gif", "./images/proj.gif"]
-        },
-        {
-            title: "Take over the world2",
-            dates: "2015",
-            description: "Trying to take over the world part II",
-            images: ["./images/proj.gif", "./images/proj.gif"]
-        }
-    ],
-    display: function () {
-        projects.projects.forEach(function (project) {
+    projects: [{
+        title: "Take over the world",
+        dates: "2014",
+        description: "Trying to take over the world",
+        images: ["./images/proj.gif", "./images/proj.gif"]
+    }, {
+        title: "Take over the world2",
+        dates: "2015",
+        description: "Trying to take over the world part II",
+        images: ["./images/proj.gif", "./images/proj.gif"]
+    }],
+    display: function() {
+        projects.projects.forEach(function(project) {
             $("#projects").append(HTMLprojectStart);
 
             var projectEntry = $(".project-entry:last");
@@ -179,7 +168,7 @@ var projects = {
             projectEntry.append(formattedProjectDates);
             projectEntry.append(formattedProjectDescription);
 
-            project.images.forEach(function (image) {
+            project.images.forEach(function(image) {
                 var formattedProjectImage = HTMLprojectImage.replace("%data%", image);
                 $(".project-entry:last").append(formattedProjectImage);
             });
